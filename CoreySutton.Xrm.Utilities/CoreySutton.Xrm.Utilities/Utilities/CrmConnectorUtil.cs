@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security;
+using CoreySutton.Utilities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Discovery;
 using Microsoft.Xrm.Tooling.Connector;
@@ -8,8 +9,17 @@ namespace CoreySutton.Xrm.Utilities
 {
     public static class CrmConnectorUtil
     {
+        public static IOrganizationService Connect(string connectionString)
+        {
+            ArgUtil.NotNullOrEmpty(connectionString, nameof(connectionString));
+
+            return GetOrganizationService(connectionString);
+        }
+
         public static IOrganizationService Connect(ICrmCredentialManager crmCredentialManager)
         {
+            ArgUtil.NotNull(crmCredentialManager, nameof(crmCredentialManager));
+
             Console.WriteLine("Please provide credentails to connect to CRM");
 
             while (true)
@@ -43,6 +53,29 @@ namespace CoreySutton.Xrm.Utilities
             }
         }
 
+        private static IOrganizationService GetOrganizationService(string connectionString)
+        {
+            ArgUtil.NotNull(connectionString, nameof(connectionString));
+
+            // TODO test this with online V9, V8
+            // TODO test this with on-prem and on-prem IFD
+            // TODO test this with EVERYTHING
+            Console.Write("Initializing connection to Dynamics 365...");
+
+            CrmServiceClient crmSvc = null;
+            Exception connectionException = null;
+            try
+            {
+                crmSvc = new CrmServiceClient(connectionString);
+            }
+            catch (Exception ex)
+            {
+                connectionException = ex;
+            }
+
+            return HandleOrganizationSerivce(crmSvc, connectionException);
+        }
+
         private static IOrganizationService GetOrganizationService(
             string username,
             SecureString password,
@@ -53,6 +86,12 @@ namespace CoreySutton.Xrm.Utilities
             bool useSsl = false,
             bool isOffice365 = true)
         {
+            ArgUtil.NotNullOrEmpty(username, nameof(username));
+            ArgUtil.NotNull(password, nameof(password));
+            ArgUtil.NotNullOrEmpty(region, nameof(region));
+            ArgUtil.NotNullOrEmpty(orgName, nameof(orgName));
+
+
             // TODO test this with online V9, V8
             // TODO test this with on-prem and on-prem IFD
             // TODO test this with EVERYTHING
@@ -77,6 +116,13 @@ namespace CoreySutton.Xrm.Utilities
                 connectionException = ex;
             }
 
+            return HandleOrganizationSerivce(crmSvc, connectionException);
+        }
+
+        private static IOrganizationService HandleOrganizationSerivce(
+            CrmServiceClient crmSvc,
+            Exception connectionException)
+        {
             // Handle success
             if (crmSvc != null && crmSvc.OrganizationServiceProxy != null && crmSvc.IsReady == true)
             {

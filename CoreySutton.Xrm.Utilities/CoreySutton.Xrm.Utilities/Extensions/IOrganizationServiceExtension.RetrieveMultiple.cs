@@ -108,7 +108,7 @@ namespace CoreySutton.Xrm.Utilities
             {
                 EntityCollection entityCollection = service.RetrieveMultiple(query);
 
-                if (XrmValidatorUtil.IsNullOrEmpty(entityCollection)) return entities;
+                if (XrmValidator.IsNullOrEmpty(entityCollection)) return entities;
 
                 entities.AddRange(entityCollection.Entities.Select(e => e.ToEntity<T>()).ToList());
 

@@ -2,7 +2,7 @@
 
 namespace CoreySutton.Xrm.Utilities
 {
-    public static class XrmValidatorUtil
+    public static class XrmValidator
     {
         public static bool IsNullOrEmpty(EntityCollection entityCollection)
         {
