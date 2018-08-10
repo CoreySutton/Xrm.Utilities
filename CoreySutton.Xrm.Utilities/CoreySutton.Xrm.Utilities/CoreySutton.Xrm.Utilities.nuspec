@@ -6,23 +6,15 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
+    <licenseUrl>https://github.com/CoreySutton/Xrm.Utilities/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/CoreySutton/Xrm.Utilities</projectUrl>
     <!--
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     -->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fix namespace of resources</releaseNotes>
+    <releaseNotes>Fix .nuspec bug causing installation of System.* packages</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Utility Dynamics365 DynamicsCRM Dynamics</tags>
-    <dependencies>
-      <dependency id="CoreySutton.Utilities" version="0.1.0" />
-      <dependency id="Microsoft.CrmSdk.CoreAssemblies" version="9.0.2.3"/>
-      <dependency id="Microsoft.CrmSdk.Deployment" version="9.0.2.3"/>
-      <dependency id="Microsoft.CrmSdk.Workflow" version="9.0.2.3"/>
-      <dependency id="Microsoft.CrmSdk.XrmTooling.CoreAssembly" version="9.0.2.3"/>
-      <dependency id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.1.9.4"/>
-    </dependencies>
   </metadata>
 </package>
