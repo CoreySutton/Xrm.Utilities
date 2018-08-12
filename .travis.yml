@@ -1,0 +1,3 @@
+language: csharp
+solution: CoreySutton.Xrm.Utilities.sln
+before_install: cd CoreySutton.Xrm.Utilities
