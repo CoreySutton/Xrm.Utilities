@@ -59,7 +59,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseSavedCredentials_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseSavedCredentials_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public string GetUsername()
@@ -105,7 +105,7 @@ namespace CoreySutton.Xrm.Utilities
         {
             string promptMsg = Resources.ConsoleCrmCredentialManager.Prompts.Prompt_Password;
 
-            return ConsoleIoUtil.GetSecureString(promptMsg);
+            return ConsoleIo.GetSecureString(promptMsg);
         }
 
         public string GetRegion()
@@ -188,7 +188,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUniqueInstance_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUniqueInstance_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public bool GetUseSsl()
@@ -197,7 +197,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseSsl_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseSsl_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public bool GetUseAdvancedSetup()
@@ -206,7 +206,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseAdvancedSetup_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidUseAdvancedSetup_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public bool GetIsOffice365()
@@ -215,7 +215,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidIsOffice365_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidIsOffice365_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public bool GetShouldSaveCredentials()
@@ -224,7 +224,7 @@ namespace CoreySutton.Xrm.Utilities
             string emptyErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidShouldSaveCredentials_Empty;
             string notYesNoErrMsg = Resources.ConsoleCrmCredentialManager.Errors.Error_InvalidShouldSaveCredentials_NotYesNo;
 
-            return ConsoleIoUtil.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
+            return ConsoleIo.GetYesNo(promptMsg, emptyErrMsg, notYesNoErrMsg);
         }
 
         public void SaveCredentials()

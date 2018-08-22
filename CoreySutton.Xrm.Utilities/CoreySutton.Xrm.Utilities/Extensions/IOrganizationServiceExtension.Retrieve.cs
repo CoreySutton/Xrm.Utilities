@@ -13,7 +13,7 @@ namespace CoreySutton.Xrm.Utilities
             ColumnSet columnSet = null)
             where T : Entity, new()
         {
-            ArgUtil.NotNull(entityId, nameof(entityId));
+            Argument.IsNotNull(entityId, nameof(entityId));
 
             Entity entity = service.Retrieve(new T().LogicalName, entityId, columnSet ?? new ColumnSet(true));
 

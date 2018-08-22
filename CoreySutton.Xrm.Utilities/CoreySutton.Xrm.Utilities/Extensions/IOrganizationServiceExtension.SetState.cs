@@ -23,7 +23,7 @@ namespace CoreySutton.Xrm.Utilities
             string entityName, Guid recordId,
             int status = Constants.StatusActiveOsv)
         {
-            ArgUtil.NotNull(entityName);
+            Argument.IsNotNull(entityName);
 
             SetStateRequest setStateRequest = new SetStateRequest
             {
@@ -56,7 +56,7 @@ namespace CoreySutton.Xrm.Utilities
             Guid recordId, 
             int status = Constants.StatusInactiveOsv)
         {
-            ArgUtil.NotNull(entityName);
+            Argument.IsNotNull(entityName);
 
             SetStateRequest setStateRequest = new SetStateRequest
             {
