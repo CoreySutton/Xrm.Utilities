@@ -7,8 +7,8 @@ namespace CoreySutton.Xrm.Utilities
     {
         public static QueryExpression AddConditionsToQuery(QueryExpression query, ConditionExpression[] conditions)
         {
-            ArgUtil.NotNull(query);
-            ArgUtil.NotNull(conditions);
+            Argument.IsNotNull(query);
+            Argument.IsNotNull(conditions);
 
             foreach (ConditionExpression condition in conditions)
             {

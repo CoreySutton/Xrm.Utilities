@@ -11,14 +11,14 @@ namespace CoreySutton.Xrm.Utilities
     {
         public static IOrganizationService Connect(string connectionString)
         {
-            ArgUtil.NotNullOrEmpty(connectionString, nameof(connectionString));
+            Argument.IsNotNullOrEmpty(connectionString, nameof(connectionString));
 
             return GetOrganizationService(connectionString);
         }
 
         public static IOrganizationService Connect(ICrmCredentialManager crmCredentialManager)
         {
-            ArgUtil.NotNull(crmCredentialManager, nameof(crmCredentialManager));
+            Argument.IsNotNull(crmCredentialManager, nameof(crmCredentialManager));
 
             Console.WriteLine("Please provide credentails to connect to CRM");
 
@@ -55,7 +55,7 @@ namespace CoreySutton.Xrm.Utilities
 
         private static IOrganizationService GetOrganizationService(string connectionString)
         {
-            ArgUtil.NotNull(connectionString, nameof(connectionString));
+            Argument.IsNotNull(connectionString, nameof(connectionString));
 
             // TODO test this with online V9, V8
             // TODO test this with on-prem and on-prem IFD
@@ -86,10 +86,10 @@ namespace CoreySutton.Xrm.Utilities
             bool useSsl = false,
             bool isOffice365 = true)
         {
-            ArgUtil.NotNullOrEmpty(username, nameof(username));
-            ArgUtil.NotNull(password, nameof(password));
-            ArgUtil.NotNullOrEmpty(region, nameof(region));
-            ArgUtil.NotNullOrEmpty(orgName, nameof(orgName));
+            Argument.IsNotNullOrEmpty(username, nameof(username));
+            Argument.IsNotNull(password, nameof(password));
+            Argument.IsNotNullOrEmpty(region, nameof(region));
+            Argument.IsNotNullOrEmpty(orgName, nameof(orgName));
 
 
             // TODO test this with online V9, V8
