@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CoreySutton.Utilities;
@@ -77,10 +78,10 @@ namespace CoreySutton.Xrm.Utilities
             var query = new QueryExpression(new T().LogicalName);
             query.ColumnSet = columnSet ?? new ColumnSet(true);
 
-            if (!NullUtil.IsNullOrEmpty(conditions))
+            if (!Validator.IsNullOrEmpty((ICollection)conditions))
                 query = QueryExpressionUtil.AddConditionsToQuery(query, conditions);
 
-            if (!NullUtil.IsNullOrEmpty(linkEntities))
+            if (!Validator.IsNullOrEmpty((ICollection)linkEntities))
                 query.LinkEntities.AddRange(linkEntities);
 
             return service.RetrieveMultiple<T>(query);
@@ -91,7 +92,7 @@ namespace CoreySutton.Xrm.Utilities
             QueryExpression query)
             where T : Entity
         {
-            ArgUtil.NotNull(query, nameof(query));
+            Argument.IsNotNull(query, nameof(query));
 
             // Top count cannot be specified with paging
             if (query.TopCount == null)
