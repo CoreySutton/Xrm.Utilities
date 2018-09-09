@@ -1,6 +1,9 @@
 # CoreySutton.Xrm.Utilities
 
-[![Build Status](https://travis-ci.org/CoreySutton/Xrm.Utilities.svg?branch=master)](https://travis-ci.org/CoreySutton/Xrm.Utilities)
+Branch | Build | Release | NuGet
+-------|-------|---------|-------
+master | [![Build status](https://coreysutton.visualstudio.com/CoreySutton/_apis/build/status/CoreySutton.Xrm.Utilities-CI)](https://coreysutton.visualstudio.com/CoreySutton/_build/latest?definitionId=9) | n/a | [![NuGet version](https://badge.fury.io/nu/coreysutton.xrm.utilities.svg)](https://badge.fury.io/nu/coreysutton.xrm.utilities)
+develop | [![Build status](https://coreysutton.visualstudio.com/CoreySutton/_apis/build/status/CoreySutton.Utilities-CI-develop)](https://coreysutton.visualstudio.com/CoreySutton/_build/latest?definitionId=6) | n/a | n/a
 
 ## Extensions
 Extention class for `IOrganizationService` interface.
