@@ -1,4 +1,4 @@
-# CoreySutton.Xrm.Utilities
+# Xrm.Utilities
 
 Branch | Build | Release | NuGet
 -------|-------|---------|-------
