@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452;net47</TargetFrameworks>
-    <Version>0.1.4.0</Version>
-    <AssemblyVersion>0.1.4.0</AssemblyVersion>
+    <Version>0.1.5.0</Version>
+    <AssemblyVersion>0.1.5.0</AssemblyVersion>
     <AssemblyTitle>CoreySutton.Xrm.Utilities</AssemblyTitle>
     <Title>CoreySutton.Xrm.Utilities</Title>
     <Description>Core utility functions to support all applications Dynamics Crm apps and libraries</Description>
