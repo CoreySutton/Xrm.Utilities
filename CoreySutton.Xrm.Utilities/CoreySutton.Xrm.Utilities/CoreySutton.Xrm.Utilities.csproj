@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>net452;net47</TargetFrameworks>
-    <Version>0.1.5.0</Version>
-    <AssemblyVersion>0.1.5.0</AssemblyVersion>
+    <Version>0.1.6.0</Version>
+    <AssemblyVersion>0.1.6.0</AssemblyVersion>
     <AssemblyTitle>CoreySutton.Xrm.Utilities</AssemblyTitle>
     <Title>CoreySutton.Xrm.Utilities</Title>
     <Description>Core utility functions to support all applications Dynamics Crm apps and libraries</Description>
@@ -20,11 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="CoreySutton.Utilities" Version="0.3.0" />
-    <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.5" />
-    <PackageReference Include="Microsoft.CrmSdk.Deployment" Version="9.0.2.5" />
-    <PackageReference Include="Microsoft.CrmSdk.Workflow" Version="9.0.2.5" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.2.7" />
-    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="2.22.302111727" />
   </ItemGroup>
 
 </Project>
