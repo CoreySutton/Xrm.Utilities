@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net452</TargetFrameworks>
+    <Version>0.1.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <AssemblyTitle>CoreySutton.Xrm.Utilities.IOrganizationServiceExtensions</AssemblyTitle>
+    <Title>CoreySutton.Xrm.Utilities.IOrganizationServiceExtensions</Title>
+    <Description>Extension classes for the IOrganizaitonService interface</Description>
+    <Company>Corey Sutton</Company>
+    <Authors>Corey Sutton</Authors>
+    <Product>CoreySutton.Xrm.Utilities.IOrganizationServiceExtensions</Product>
+    <Copyright>Copyright © 2019</Copyright>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/CoreySutton/Xrm.Utilities</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <RepositoryUrl>https://github.com/CoreySutton/Xrm.Utilities</RepositoryUrl>
+    <PackageTags>Utility Dynamics365 DynamicsCRM Dynamics IOrganizationService</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageLicenseExpression></PackageLicenseExpression>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CoreySutton.Utilities" Version="0.3.0" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.0.2.7" />
+  </ItemGroup>
+</Project>

@@ -79,7 +79,12 @@ namespace CoreySutton.Xrm.Utilities
             query.ColumnSet = columnSet ?? new ColumnSet(true);
 
             if (!Validator.IsNullOrEmpty((ICollection)conditions))
-                query = QueryExpressionUtil.AddConditionsToQuery(query, conditions);
+            {
+                foreach (ConditionExpression condition in conditions)
+                {
+                    query.Criteria.AddCondition(condition);
+                }
+            }
 
             if (!Validator.IsNullOrEmpty((ICollection)linkEntities))
                 query.LinkEntities.AddRange(linkEntities);
@@ -107,15 +112,15 @@ namespace CoreySutton.Xrm.Utilities
 
             while (true)
             {
-                EntityCollection entityCollection = service.RetrieveMultiple(query);
+                EntityCollection ec = service.RetrieveMultiple(query);
 
-                if (XrmValidator.IsNullOrEmpty(entityCollection)) return entities;
+                if (ec?.Entities == null || ec.Entities.Count == 0) return entities;
 
-                entities.AddRange(entityCollection.Entities.Select(e => e.ToEntity<T>()).ToList());
+                entities.AddRange(ec.Entities.Select(e => e.ToEntity<T>()).ToList());
 
                 // Calendar does not support paging, therefore we need a different approach
                 if (query.EntityName == Constants.Entities.Calendar.EntityLogicalName &&
-                    entityCollection.Entities.Count == Constants.PageSize)
+                    ec.Entities.Count == Constants.PageSize)
                 {
                     List<Guid> retrievedCalendarIds = entities.Select(e => e.Id).ToList();
                     query.Criteria.AddCondition(
@@ -125,10 +130,10 @@ namespace CoreySutton.Xrm.Utilities
                 }
 
                 // There are more records so get the next page
-                if (entityCollection.MoreRecords)
+                if (ec.MoreRecords)
                 {
                     query.PageInfo.PageNumber++;
-                    query.PageInfo.PagingCookie = entityCollection.PagingCookie;
+                    query.PageInfo.PagingCookie = ec.PagingCookie;
 
                     continue;
                 }
