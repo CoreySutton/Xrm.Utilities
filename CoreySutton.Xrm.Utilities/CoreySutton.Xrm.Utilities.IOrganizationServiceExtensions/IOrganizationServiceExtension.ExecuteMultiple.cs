@@ -12,6 +12,7 @@ namespace CoreySutton.Xrm.Utilities
             List<OrganizationRequest> requests)
         {
             var totalRequestsExecuted = 0;
+            var batchesExecuted = 0;
             var organizationResponses = new List<OrganizationResponse>();
 
             // Create an ExecuteMultipleRequest object.
@@ -36,20 +37,42 @@ namespace CoreySutton.Xrm.Utilities
                 if (executeMultipleRequest.Requests.Count == Constants.ExecuteMultipleBatchSize)
                 {
                     totalRequestsExecuted += executeMultipleRequest.Requests.Count;
+                    batchesExecuted++;
 
-                    organizationResponses.Add(service.Execute(request));
+                    Console.WriteLine($"ExecuteMutliple batch {batchesExecuted} (count = {executeMultipleRequest.Requests.Count}, totalRequestsExecuted = {totalRequestsExecuted})");
+
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    var executeMultipleResponse = service.Execute(executeMultipleRequest) as ExecuteMultipleResponse;
+                    stopwatch.Stop();
+                    Console.WriteLine($"Complete {stopwatch.ElapsedMilliseconds} ms");
+
+                    var responses = executeMultipleResponse.Responses.Select(r => r.Response);
+                    organizationResponses.AddRange(responses);
 
                     executeMultipleRequest.Requests.Clear();
                 }
             }
 
             if (executeMultipleRequest.Requests.Count > 0)
-            {
-                service.Execute(executeMultipleRequest);
+            {                
                 totalRequestsExecuted += executeMultipleRequest.Requests.Count;
+                batchesExecuted++;
+
+                Console.WriteLine($"ExecuteMutliple batch {batchesExecuted} (count = {executeMultipleRequest.Requests.Count}, totalRequestsExecuted = {totalRequestsExecuted})");
+
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                var executeMultipleResponse = service.Execute(executeMultipleRequest) as ExecuteMultipleResponse;
+                stopwatch.Stop();
+                Console.WriteLine($"Complete {stopwatch.ElapsedMilliseconds} ms");
+
+                var responses = executeMultipleResponse.Responses.Select(r => r.Response);
+                organizationResponses.AddRange(responses);
             }
 
-            return new Tuple<int, List<OrganizationResponse>>(totalRequestsExecuted, organizationResponses);
+            Console.WriteLine($"ExecuteMutliple complete. (totalRequestsExecuted = {totalRequestsExecuted}, batchesExecuted = {batchesExecuted})");
+            return new Tuple<int,List<OrganizationResponse>>(totalRequestsExecuted, organizationResponses);
         }
     }
 }
